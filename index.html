@@ -1,0 +1,56 @@
+<!DOCTYPE  html>
+<html>
+    <head>
+    <meta http-equiv="content-type"   content="text/html;charset=utf-8"  >
+
+
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <script src="js/jquery.js"  ></script>
+    <script src="js/utils.js"  ></script>
+    </script src="js/bootstrap.bundle.js" ></script>
+
+
+    <script >
+
+    $( function() {
+       $( '[name="submitBtn"]').click(  function() {
+           var params = formDataFrom(  "#loginInfo" );  
+           doGet( "/user/query", params,  function( data ) {
+              if ( ( data +"") == "true" ) {
+                 window.location.href="/main.html" ;  
+              }else {
+                 alert( "登录信息错误" ) ;  
+              }
+           } ); 
+       } );  
+    } );
+    </script>
+    </head>
+    <body class="bg-dark" >
+
+        <div  style="height:10rem" ></div>
+        <div  class='container mt-5 border-info' id='loginInfo'  action="/user/add" style="1px solid white;"   >
+            <div class="row" >
+            <div class="input-group col-4" >
+                <div class="input-group-prepend" >
+                    <span class="input-group-text">UserName</span>
+                </div>
+                <input type="text" name="accountName" class="form-control" />
+            </div>
+
+            <div class="input-group col-4" >
+                <div class="input-group-prepend" >
+                    <span class="input-group-text">Password</span>
+                </div>
+                <input type="text" name="password" class="form-control" />
+            </div>
+
+            <div class="input-group col-4" >
+
+                <button  class="btn btn-primary"  name="submitBtn" >Submit</button>
+            </div>
+        </div>
+
+            
+    </body>
+</html>
